@@ -6,7 +6,7 @@ Pasta com conteúdo da aula realizada no dia 26/09/2016.
 
 ### Ambiente de Trabalho
 
-Esta essa é um how-to de como configurar o ambiente que será utilizado ao longo da disciplina.
+How-to de como configurar o ambiente que será utilizado ao longo da disciplina.
 
 Dependências necessárias:
 * [Virtualbox](https://www.virtualbox.org/) 5.0 ou maior
