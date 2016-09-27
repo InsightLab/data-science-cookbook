@@ -22,4 +22,4 @@ Passos:
 
 Mais detalhes estão disponíveis [aqui](https://github.com/paulovn/ml-vm-notebook/blob/develop/README.md). Assim como, na [documentação](https://www.vagrantup.com/docs/cli/) do próprio Vagrant.
 
-Dúvidas podemos ser registradas nesta issue ARiDa/data-science-cookbook#1.
+Dúvidas podemos ser registradas em [#1](https://github.com/ARiDa/data-science-cookbook/issues/1).
