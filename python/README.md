@@ -14,7 +14,7 @@ Dependências necessárias:
 
 Passos:
 
-1. Realize o clone ou o download do repositório [ml-vm-notebook](https://github.com/paulovn/ml-vm-notebook). Este repositório contém o Vagrantfile que será utilizado por nós.
+1. Realize o clone ou o download do repositório [ml-vm-notebook](https://github.com/paulovn/ml-vm-notebook). Este repositório contém o [Vagrantfile](https://www.vagrantup.com/docs/vagrantfile/) que será utilizado por nós.
 
 2. Abra o terminal, acesse a pasta onde o repositório encontra-se e execute o comando `vagrant up`. Este comando irá realizar o download do box base e depois as configurações necessárias.
 
