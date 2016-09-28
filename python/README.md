@@ -49,3 +49,5 @@ $:~/Downloads$ vagrant box add data-science hc-download
 ```
 
 * Ainda no diretório do Vagrantfile execute o comando `vagrant up`
+
+**Obs.:** caso no processo de acesso via SSH disparar um timeout, abra novamente o Vagrantfile e descomente a linha 134. Execute o comando `vagrant halt` e em seguida `vagrant up`.
