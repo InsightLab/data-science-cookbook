@@ -12,7 +12,7 @@ How-to de como configurar o ambiente que será utilizado ao longo da disciplina.
 
 Dependências necessárias:
 * [Virtualbox](https://www.virtualbox.org/) 5.0 ou maior
-* [Vagrant](https://www.vagrantup.com/) 1.8.0 ou maior
+* [Vagrant](https://www.vagrantup.com/) 1.8.6
 
 **Passos:**
 
