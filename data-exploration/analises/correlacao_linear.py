@@ -4,8 +4,8 @@ from descritiva import medida_central, medida_dispersao
 import math
 
 
-#
-#
+# Função para calcular a correlação linear entre os valores de duas coleções numéricas
+# Indica a força e a direção do relacionamento linear entre duas variáveis aleatórias. 
 def correlation(x, y):
 	return covariance(x, y) / math.sqrt(medida_dispersao.population_variance(x) * medida_dispersao.population_variance(y))
 
