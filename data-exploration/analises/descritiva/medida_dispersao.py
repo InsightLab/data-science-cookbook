@@ -42,11 +42,19 @@ def range(iterable):
 	return maximum(iterable) - minimum(iterable)
 
 
-# Função para calcular a variância dos valores de uma coleção
+# Função para calcular a variância amostral dos valores de uma coleção
 # É a medida de dispersão que mostra quão distantes os valores estão da média.
-def variance(iterable):
+# https://pt.wikipedia.org/wiki/Vari%C3%A2ncia
+def sample_variance(iterable):
 	mean = medida_central.mean(iterable)
 	return sum([(value - mean)**2 for value in iterable]) / (len(iterable) - 1)
+
+
+# Função para calcular a variância da população dos valores de uma coleção
+# https://pt.wikipedia.org/wiki/Vari%C3%A2ncia
+def population_variance(iterable):
+	mean = medida_central.mean(iterable)
+	return sum([(value - mean)**2 for value in iterable]) / len(iterable)
 
 
 # Função para calcular o desvio padrão dos valores de uma coleção
@@ -55,7 +63,7 @@ def variance(iterable):
 Um baixo desvio padrão indica que os dados tendem a estar próximos da média; um desvio padrão alto indica que os dados estão espalhados por uma gama de valores.
 """
 def standard_deviation(iterable): 
-	return math.sqrt(variance(iterable))
+	return math.sqrt(sample_variance(iterable))
 
 
 # Função para calcular o coeficiente de variação dos valores de uma coleção

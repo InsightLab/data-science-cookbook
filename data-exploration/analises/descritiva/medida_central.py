@@ -5,7 +5,7 @@
 def mean(iterable):
 	# https://docs.python.org/2/library/functions.html#sum
 	# Ou simplesmente: total = sum(iterable)
-	total = 0
+	total = 0.
 	for value in iterable:
 		total += value
 	return total/len(iterable)
