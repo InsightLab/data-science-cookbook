@@ -1,4 +1,5 @@
 # Aula - Naive Bayes
+Data: 26/10/2016
 
 Pessoal, os esclarecimentos/explicações da solução Naive Bayes se encontra comentado no próprio código. Espero que esteja simples e objetivo. Se encontrarem melhorias (com certeza tem), fiquem à vontade. Qualquer dúvida, só falar!
  
