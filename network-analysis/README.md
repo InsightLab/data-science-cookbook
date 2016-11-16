@@ -1,6 +1,6 @@
 # Análise de Rede
 
-[Link](https://docs.google.com/presentation/d/19mnE_yag6RxQxqadLHd03cMjxV8gkAlqlzZbNC5aGSk/edit?usp=sharing) para apresentação.
+[Link](https://docs.google.com/presentation/d/19mnE_yag6RxQxqadLHd03cMjxV8gkAlqlzZbNC5aGSk/edit?usp=sharing) para apresentação (e aqui o [pdf](https://drive.google.com/open?id=0B6ZXi9whq_ORanZQME52THl3Y1U)).
 
 Os exercícios são:
 
