@@ -18,4 +18,4 @@ Para gerarmos o dataset da aula, siga as instruções:
 
 Será muito mais interessante se todos participarem e informarem seus interesses :D
 
-[Link](emanueloliveira.com/data-science/interest.csv) para o dataset.
+[Link](http://emanueloliveira.com/data-science/interest.csv) para o dataset.
