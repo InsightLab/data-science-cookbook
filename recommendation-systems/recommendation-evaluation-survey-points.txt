@@ -1,0 +1,143 @@
+Recommender Systems Survey: Bobadilla et al. (2013). Sessão 4.
+
+link para o pdf: http://romisatriawahono.net/lecture/rm/survey/information%20retrieval/Bobadilla%20-%20Recommender%20Systems%20-%202013.pdf
+
+OBSERVAÇÕES GERAIS:
+
+* Os Sistemas de Recomendação podem ser avaliados através de:
+    - Medidas de Qualidade
+    - Métricas de Avaliação
+    
+* Métricas de Avaliação e Frameworks de Avaliação [1] facilitam as comparação entre várias soluções.
+
+* As Medidas de Qualidade comumente utilizadas são:
+    - Avaliação de predição.
+    - Avaliação para recomendação como um conjunto.
+    - Avaliação para recomendação como um rank.
+    
+* As Métricas de Avaliação podem ser classificadas como:
+    - Métricas de predição: Mean Absolute Error (MAE), Root of Mean Square Error (RMSE), Normalized Mean Average Error(NMAE) e coverage.
+    - Métricas para recomendação como um conjunto: Precisão, Recall e Receiver Operating Characteristic (ROC) [5].
+    - Métricas para recomendação como um rank: half-life [3] e discounted cumulative gain [4].
+    - Métricas para diversidade: diversidade e novidade dos itens recomendados.
+
+* O processo de validação é executado pelo emprego das técnicas mais comuns de cross-validation:
+    - random sub-sampling
+    - k-fold cross validation [2].
+    
+* Há também técnicas para tratar cold-start, mas não é um caso de aplicabilidade na disciplina.
+
+* Hérnanez e Gaudiso [1] propuseram um processo de avaliação baseado na distinção entre sistemas interativos e sistemas não interativos.
+
+* As métricas de avaliação mais comumente aceitas são: 
+    - MAE
+    - coverage
+    - precisão
+    - recall 
+    - e as derivadas dessas: mean squared error, NMAE, ROC e fallout.
+
+
+APROFUNDAMENTO DE CASOS:
+
+1. Qualidade das Predições: MEA, precisão e cobertura.
+
+    Definimos: 
+        - U como o conjunt de usuários.
+        - I como o conjunto de items.
+        - r(u,i) como a avaliação do usuário u para o item i.
+        - * como a falta de um rating (r(u,i) = * significa que o usuário u não avaliou o item i)
+        - p(u,i) a predição do item i para o usuário u.
+        
+    Seja O(u) = { i E I | p(u,i) != * ^ r(u,i) != * } o conjunto de items avaliados pelo usuário u que têm valores de predição.
+    
+    Definimos o MAE e RMSE do sistema como a média dos MAE dos usuários.
+    
+    
+    Observamos que a diferença absoluta entre a predição e o valor real, | p(u,i) - r(u,i) |, assinala o erro na predição.
+    
+    Assim:
+    
+    MAE = (1 / #U) * ( o somatório de u E U { 
+                ( 1 / #O ) * ( somatório de i E O(u) { 
+                    | p(u,i) - r(u,i) | 
+                } ) 
+            } )
+            
+    RMSE = (1 / #U) * ( o somatório de u E U {
+                sqrt {
+                    (1 / # O) * somatório de i E O(u) {
+                        (p(u,i) - r(u,i)) ^ 2
+                    }
+                }
+            })
+            
+            
+    Coverage: calcula a porcentagem de situações nas quais no mínimo um dos k-vizinhos de cada usuário ativo pode avaliar um item que ainda não foi avaliado por esse usuário ativo.
+    
+    Definimos K(u,i) como o conjunto de vizinhos de u que avaliaram o item i.
+    
+    Definimos a coverage do sistema como a média das coverages dos usuáriso:
+    
+    C(u) = { i E I | r(u,i ) = * ^ K(u,i) != vazio }, D(u) = { i E I | r(u,i) = * }
+
+    coverage = (1 / #U) * ( somatório de u E U { 
+                    100 * ( #C(u) / #D(u) ) 
+                } )
+
+
+2. Qualidade da recomendação como um conjunto: precisião, recall e F1.
+
+    Precisão: indica a proporção de items relevantes recomendados do número total de items recomendados.
+    
+    Recall: indica a proporção de items relevantes recomendados do número total de items relevantes.
+    
+    F1: é uma combinação de Precisão e Recall.
+
+    Seja X(u) como o conjunto de recomendações para o usuário u.
+    
+    Seja Z(u) como o conjunto de n recomendações para o usuário u.
+    
+    Representaremos a avaliação das medidas de precisão, recall e F1 para recomendações obtidas fazendo n testes de recomendação para o usuário u, tendo t como o threshold de relevância. 
+    
+    Assumindo que todos os usuários aceitam n testes de recomendação:
+    
+    precision = ( 1 / #U ) * (somatório de u E U {
+                    #{ i E Z(u) | r(u,i) >= t }  / n
+                })
+    
+    recall = ( 1 / #U ) * (somatório de u E U {
+                    #{ i E Z(u) | r(u,i) >= t } / ( #{  i E Z(u) | r(u,i) >= t  } + #{ i E Zc(u) | r(u,i) >= t } )
+                })
+    
+    F1 = (2 * precisão * recall) / (precisão + recall)
+    
+    
+3. Qualidade da recomendação como lista: rank measure.
+
+    half-life: assume uma queda exponencial no interesse dos usuários como eles movem-se da recomendação no topo.
+    discounted cumulative gain: onde o decaimento é logarítmico.
+    
+    HL = ( 1 / #U ) * (somatório de u E U { 
+                somatório de 1 até N como i {
+                    max(r(u, p(i)) - d, 0) / 2 ^ ( (1-i) / (a - 1) )
+                }        
+            })
+            
+    DCG(k) = ( 1 / #U ) * (somatório de u E U { 
+                r(u, p(1)) + (somatório de 2 até k como i {
+                    r(u, p(i)) / log2(i)
+                })
+            })
+
+
+REFERÊNCIAS: 
+
+[1]: F. Hernández, E. Gaudioso, Evaluation of recommender systems: a new approach, Expert Systems with Applications 35 (2008) 790–804.
+
+[2]: Y. Bengio, Y. Grandvalet, No umbiased estimator of the variance of k-fold cross-validation, Journal of Machine Learning Research 5 (2004) 1089–1105.
+
+[3]: J.S. Breese, D. Heckerman, C. Kadie, Empirical analysis of predictive algorithms for collaborative filtering, in: 14th Conference on Uncertainty in Artificial Intelligence, 1998, pp. 43–52.
+
+[4]: L. Baltrunas, T. Makcinskas, F. Ricci, Group recommendation with rank aggregation and collaborative filtering, in: Proceedings of the 2010 ACM Conference on Recommender Systems, 2010, pp. 119–126.
+
+[5]: .I. Schein, A. Popescul, L.H. Ungar, D.M. Pennock, Methods and metrics for cold-start recommendations, in: Proceeding SIGIR ’02 Proceedings of the 25th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval, 2002, pp. 253–260.
