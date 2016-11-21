@@ -1,4 +1,4 @@
-[Link](https://docs.google.com/presentation/d/1El5ooWvQEE-PfS-kGUlqPIb-OMHqyoV0AeuPzLxW9Sg/edit?usp=sharing) para apresentação ([versão PDF](https://drive.google.com/file/d/0B6ZXi9whq_ORYnFyV1VLQ2R3eFE/view?usp=sharing)).
+[Link](https://docs.google.com/presentation/d/1El5ooWvQEE-PfS-kGUlqPIb-OMHqyoV0AeuPzLxW9Sg/edit?usp=sharing) para apresentação.
 
 O Exercício da aula está no arquivo __Exercise.ipynb__. Adicione ele e o __exercise_utils.py__ no mesmo diretório do notebook.
 
