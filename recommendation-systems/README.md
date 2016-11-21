@@ -2,7 +2,7 @@
 
 O Exercício da aula está no arquivo __Exercise.ipynb__. Adicione ele e o __exercise_utils.py__ no mesmo diretório do notebook.
 
-## IMPORTANTE!: 
+## IMPORTANTE! 
 
 Para gerarmos o dataset da aula, siga as instruções: 
 * Entre [nesse link](http://emanueloliveira.com/data-science/index.php).
@@ -17,3 +17,5 @@ Para gerarmos o dataset da aula, siga as instruções:
 > Obs 2: tente seguir uma padronização mínima no nome, usando a ortografia convencional. Isso evitará duplicações de interesses que são os mesmos.
 
 Será muito mais interessante se todos participarem e informarem seus interesses :D
+
+[Link](emanueloliveira.com/data-science/interest.csv) para o dataset.
