@@ -10,7 +10,7 @@ Para gerarmos o dataset da aula, siga as instruções:
 * Marque as áreas, tecnologias, termos, conceitos, etc... da computação que são do seu interesse.
   * Se uma das opções de interesse não estiver disponível, adicione-a no input ques está localizado abaixo das opções. Assim que você adiciona seu intresse, outros usuários podem selecioná-lo.
 * Após marcadas os interesses, clique em _Enviar Interesses_.
-* Espera até o __final da aula__ para termos um dataset maior para aula.
+* Espere até o __final da aula__ para termos um dataset maior.
 
 > Obs 1: os interesses são indexados pelo seu nome ("Cientista:"). Se você deseja atualizá-los, basta reenviar o os interesses informando o mesmo nome.
 
