@@ -32,7 +32,7 @@ Seja `Tu` o conjunto de teste do usuário `u`. Seja `Ru` o conjunto recomendado 
 
 > O operador`U` é união entre dois conjuntos.
 
-Obtenha o __índice de precisão geral__ do seu SR, como sendo a média dos `Pu` do usuários, obtido por: `(Pui + Puj + Puk ... + Puz) / |V| `. Sendo `V` o conjunto de usuários e `|V|` o seu tamanho.
+O __índice de precisão geral__ do seu SR é a média dos `Pu` do usuários, obtida por: `(Pui + Puj + Puk ... + Puz) / |V| `. Sendo `V` o conjunto de usuários e `|V|` o seu tamanho.
 
 ## Melhorias
 
