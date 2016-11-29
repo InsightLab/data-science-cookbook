@@ -13,7 +13,7 @@ O dataset utilizado é composto por 2 arquivos:
 
 > O segundo arquivo é mais para fins de visualização, caso você deseje visualizar as recomendações.
 
-## Descrição geral.
+## Descrição geral
 
 Seu sistema de recomendação deve possuir uma função `F` que recebe um usuário `u` (id do usuário) e retorna um conjunto de notícias `Ru` (ids das notícias) de tamanho __k__.
 
@@ -26,7 +26,7 @@ Para testar seu SR, separe __1/3__ da notícias lida por um usuário para __test
 
 Chame `F` para cada usuário do dataset, passando como __k__ o tamanho da lista de teste do usuário (__1/3__ das notícias lidas por ele). 
 
-Seja `Tu` o conjunto de teste do usuário `u`. Seja `Ru` o conjunto recomendado por `F` para `u`. A partir desses dois cojuntos obtemos o __índice de precisão __ `Pu` para o usuário `u` como sendo: `| Tu U Ru | / | Tu |`.
+Seja `Tu` o conjunto de teste do usuário `u`. Seja `Ru` o conjunto recomendado por `F` para `u`. A partir desses dois cojuntos obtemos o __índice de precisão__ `Pu` para o usuário `u` como sendo: `| Tu U Ru | / | Tu |`.
 
 > O operador `| |` é o tamanho do conjunto. 
 
