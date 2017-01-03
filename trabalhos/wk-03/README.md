@@ -26,11 +26,11 @@ Para testar seu SR, separe __1/3__ da notícias lida por um usuário para __test
 
 Chame `F` para cada usuário do dataset, passando como __k__ o tamanho da lista de teste do usuário (__1/3__ das notícias lidas por ele). 
 
-Seja `Tu` o conjunto de teste do usuário `u`. Seja `Ru` o conjunto recomendado por `F` para `u`. A partir desses dois cojuntos obtemos o __índice de precisão__ `Pu` para o usuário `u` como sendo: `| Tu U Ru | / | Tu |`.
+Seja `Tu` o conjunto de teste do usuário `u`. Seja `Ru` o conjunto recomendado por `F` para `u`. A partir desses dois cojuntos obtemos o __índice de precisão__ `Pu` para o usuário `u` como sendo: `| Tu & Ru | / | Tu |`.
 
 > O operador `| |` é o tamanho do conjunto. 
 
-> O operador`U` é união entre dois conjuntos.
+> O operador `&` é interseção entre dois conjuntos.
 
 O __índice de precisão geral__ do seu SR é a média dos `Pu` do usuários, obtida por: `(Pui + Puj + Puk ... + Puz) / |V| `. Sendo `V` o conjunto de usuários e `|V|` o seu tamanho.
 
