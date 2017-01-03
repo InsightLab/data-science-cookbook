@@ -47,6 +47,6 @@ Na entrega, disserte um pouco sobre os porquês que você optou por uma determin
 
 ## Entrega
 
-Você deve entregar um jupyter notebook contendo todo o fluxo de definições (métodos e classes, se usá-las) e de execução do sistema de recomendação. Desde a leitura e preparação do dataset até a exibição do índice de precisão geral do SR.
+Você deve entregar um jupyter notebook contendo todo o fluxo de definições (métodos e classes, se usá-las) e de execução do sistema de recomendação, desde a leitura e preparação do dataset até a exibição do índice de precisão geral do SR.
 
 Bom trabalho!
