@@ -1,4 +1,4 @@
-# Data Science Cookbook
+# Garimpagem de Dados 2016
 -------
 
 Repositório da disciplina de Data Science
