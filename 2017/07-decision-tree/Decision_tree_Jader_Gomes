@@ -1,0 +1,609 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Exercicio de Decision Tree\n",
+    "\n",
+    "Jader Gomes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#bibliotecas\n",
+    "import os\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import math\n",
+    "from sklearn.tree import DecisionTreeClassifier"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>buying</th>\n",
+       "      <th>maint</th>\n",
+       "      <th>doors</th>\n",
+       "      <th>persons</th>\n",
+       "      <th>lug_boot</th>\n",
+       "      <th>safety</th>\n",
+       "      <th>class</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>low</td>\n",
+       "      <td>low</td>\n",
+       "      <td>5more</td>\n",
+       "      <td>more</td>\n",
+       "      <td>small</td>\n",
+       "      <td>high</td>\n",
+       "      <td>good</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>high</td>\n",
+       "      <td>high</td>\n",
+       "      <td>4</td>\n",
+       "      <td>2</td>\n",
+       "      <td>big</td>\n",
+       "      <td>high</td>\n",
+       "      <td>unacc</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>low</td>\n",
+       "      <td>vhigh</td>\n",
+       "      <td>4</td>\n",
+       "      <td>more</td>\n",
+       "      <td>big</td>\n",
+       "      <td>low</td>\n",
+       "      <td>unacc</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>high</td>\n",
+       "      <td>high</td>\n",
+       "      <td>2</td>\n",
+       "      <td>4</td>\n",
+       "      <td>small</td>\n",
+       "      <td>low</td>\n",
+       "      <td>unacc</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>vhigh</td>\n",
+       "      <td>vhigh</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>big</td>\n",
+       "      <td>med</td>\n",
+       "      <td>unacc</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  buying  maint  doors persons lug_boot safety  class\n",
+       "0    low    low  5more    more    small   high   good\n",
+       "1   high   high      4       2      big   high  unacc\n",
+       "2    low  vhigh      4    more      big    low  unacc\n",
+       "3   high   high      2       4    small    low  unacc\n",
+       "4  vhigh  vhigh      4       4      big    med  unacc"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "headers = [\"buying\", \"maint\", \"doors\", \"persons\",\"lug_boot\", \"safety\", \"class\"]\n",
+    "dataset = pd.read_csv(\"car_data.csv\", header=None, names=headers)\n",
+    "\n",
+    "dataset = dataset.sample(frac=1).reset_index(drop=True) \n",
+    "\n",
+    "dataset.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>buying</th>\n",
+       "      <th>maint</th>\n",
+       "      <th>doors</th>\n",
+       "      <th>persons</th>\n",
+       "      <th>lug_boot</th>\n",
+       "      <th>safety</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>class</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>3</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>2</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1</td>\n",
+       "      <td>3</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>1</td>\n",
+       "      <td>2</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>3</td>\n",
+       "      <td>3</td>\n",
+       "      <td>2</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "       buying  maint  doors  persons  lug_boot  safety\n",
+       "class                                                 \n",
+       "1           1      1      3        2         2       0\n",
+       "2           0      0      2        0         0       0\n",
+       "2           1      3      2        2         0       1\n",
+       "2           0      0      0        1         2       1\n",
+       "2           3      3      2        1         0       2"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Transformando os dados categóricos(small, med, low, ...) em numéricos\n",
+    "for h in headers:\n",
+    "    dataset[h] = dataset[h].astype('category')\n",
+    "    dataset[h] = dataset[h].cat.codes\n",
+    "\n",
+    "dataset.set_index(\"class\", inplace=True)\n",
+    "dataset.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       buying  maint  doors  persons  lug_boot  safety\n",
+      "class                                                 \n",
+      "1           1      1      3        2         2       0\n",
+      "2           0      0      2        0         0       0\n",
+      "2           1      3      2        2         0       1\n",
+      "2           0      0      0        1         2       1\n",
+      "2           3      3      2        1         0       2\n",
+      "2           1      0      2        2         1       1\n",
+      "1           2      1      0        2         0       2\n",
+      "2           3      2      3        1         0       1\n",
+      "2           2      1      1        0         1       1\n",
+      "0           2      2      1        1         2       0\n",
+      "2           2      1      1        0         0       0\n",
+      "2           2      2      1        1         0       1\n",
+      "2           3      0      3        1         2       2\n",
+      "0           0      0      1        1         0       0\n",
+      "2           3      2      0        1         1       2\n",
+      "0           3      1      2        2         0       0\n",
+      "2           0      1      1        0         2       1\n",
+      "0           0      1      3        1         0       2\n",
+      "2           2      2      1        0         1       2\n",
+      "2           0      2      0        0         1       1\n",
+      "3           2      2      1        1         0       0\n",
+      "2           0      3      3        2         0       2\n",
+      "0           2      3      3        1         2       0\n",
+      "0           3      1      2        2         1       0\n",
+      "2           2      0      3        0         0       0\n",
+      "2           0      1      0        2         2       0\n",
+      "2           3      3      1        2         2       2\n",
+      "0           0      1      3        2         1       0\n",
+      "2           3      1      2        2         2       2\n",
+      "2           3      2      2        0         2       1\n",
+      "...       ...    ...    ...      ...       ...     ...\n",
+      "0           1      0      2        1         0       2\n",
+      "2           1      1      1        1         0       1\n",
+      "2           2      1      2        0         0       2\n",
+      "0           1      3      1        2         1       0\n",
+      "2           3      3      2        2         2       0\n",
+      "2           3      0      0        0         0       0\n",
+      "2           0      2      0        2         2       0\n",
+      "2           1      3      1        0         2       1\n",
+      "0           2      0      1        2         1       0\n",
+      "2           3      3      2        0         2       0\n",
+      "3           1      0      1        2         0       0\n",
+      "0           3      1      2        1         1       0\n",
+      "2           3      1      1        0         2       2\n",
+      "2           0      3      1        0         2       0\n",
+      "2           3      2      0        0         1       0\n",
+      "0           1      0      0        2         1       0\n",
+      "2           2      1      1        0         0       1\n",
+      "2           0      1      0        0         1       1\n",
+      "2           0      0      0        1         1       1\n",
+      "2           0      3      2        1         0       0\n",
+      "2           1      2      3        2         1       1\n",
+      "2           2      3      3        2         0       1\n",
+      "2           0      0      3        0         1       0\n",
+      "2           2      3      2        2         1       1\n",
+      "2           0      0      3        0         0       1\n",
+      "2           3      0      0        0         0       2\n",
+      "2           0      0      0        0         0       0\n",
+      "0           1      3      2        1         0       0\n",
+      "2           0      3      2        0         2       1\n",
+      "2           0      2      1        0         1       2\n",
+      "\n",
+      "[1296 rows x 6 columns]\n",
+      "       buying  maint  doors  persons  lug_boot  safety\n",
+      "class                                                 \n",
+      "2           1      2      2        1         1       1\n",
+      "2           3      0      1        0         2       0\n",
+      "2           0      1      3        1         0       1\n",
+      "2           0      3      2        2         0       2\n",
+      "2           0      0      1        0         0       0\n",
+      "2           2      3      1        0         2       1\n",
+      "2           3      3      0        1         1       1\n",
+      "2           1      0      2        0         1       0\n",
+      "2           2      0      3        2         2       1\n",
+      "0           3      1      3        1         2       0\n",
+      "2           3      0      1        0         0       2\n",
+      "2           0      1      0        0         2       0\n",
+      "2           1      3      1        0         1       1\n",
+      "2           3      0      3        0         2       2\n",
+      "2           0      3      3        1         0       2\n",
+      "2           0      2      2        0         1       2\n",
+      "2           0      1      2        2         1       1\n",
+      "2           0      3      0        2         2       0\n",
+      "2           1      3      0        0         1       2\n",
+      "2           2      1      0        0         0       1\n",
+      "0           3      1      1        1         2       0\n",
+      "2           1      1      3        1         2       1\n",
+      "2           0      3      1        1         2       1\n",
+      "1           2      1      0        1         2       0\n",
+      "2           3      2      0        0         2       0\n",
+      "2           2      3      0        1         2       2\n",
+      "2           1      3      3        2         1       1\n",
+      "2           2      2      1        0         2       0\n",
+      "2           2      1      0        0         2       2\n",
+      "2           2      2      3        2         2       1\n",
+      "...       ...    ...    ...      ...       ...     ...\n",
+      "2           0      1      1        0         1       1\n",
+      "2           1      0      1        1         2       1\n",
+      "2           2      1      0        2         1       1\n",
+      "2           0      2      1        1         1       2\n",
+      "0           3      1      1        2         1       2\n",
+      "0           3      1      1        1         0       2\n",
+      "2           0      3      3        1         1       0\n",
+      "2           3      0      2        1         2       0\n",
+      "2           3      1      2        2         2       1\n",
+      "2           2      0      2        0         2       2\n",
+      "0           2      2      2        2         2       2\n",
+      "2           0      2      2        0         1       1\n",
+      "2           3      0      2        0         2       2\n",
+      "0           1      2      2        2         2       2\n",
+      "2           0      1      1        2         2       2\n",
+      "0           1      0      3        2         2       0\n",
+      "2           3      2      0        1         2       2\n",
+      "3           1      0      1        2         1       0\n",
+      "0           3      2      3        1         0       0\n",
+      "1           1      2      2        1         0       2\n",
+      "2           1      3      1        1         2       2\n",
+      "2           3      0      2        1         0       1\n",
+      "0           3      1      3        2         2       0\n",
+      "0           2      0      1        1         2       0\n",
+      "2           3      0      1        0         2       1\n",
+      "0           0      2      3        2         1       0\n",
+      "2           2      1      3        0         1       1\n",
+      "2           1      1      0        2         1       1\n",
+      "2           1      0      3        1         1       1\n",
+      "2           1      1      3        2         0       1\n",
+      "\n",
+      "[432 rows x 6 columns]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Dividindo o dataset\n",
+    "size = len(dataset)\n",
+    "train_size = int(math.floor(size * 0.75))\n",
+    "train_data = dataset[:train_size]\n",
+    "test_data = dataset[train_size:]\n",
+    "\n",
+    "print(train_data)\n",
+    "print(test_data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,\n",
+       "            max_features=None, max_leaf_nodes=None,\n",
+       "            min_impurity_decrease=0.0, min_impurity_split=None,\n",
+       "            min_samples_leaf=1, min_samples_split=2,\n",
+       "            min_weight_fraction_leaf=0.0, presort=False, random_state=None,\n",
+       "            splitter='best')"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Treinando a árvore de decisão com critério gini\n",
+    "\n",
+    "d_tree = DecisionTreeClassifier(criterion=\"gini\")\n",
+    "d_tree.fit(train_data, train_data.index) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.97453703703703709"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Fazendo as predições através da árvore de decisão\n",
+    "d_tree.predict(test_data.iloc[:, 0:6])\n",
+    "\n",
+    "d_tree.score(test_data, test_data.index)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ModuleNotFoundError",
+     "evalue": "No module named 'graphviz'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mModuleNotFoundError\u001b[0m                       Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-14-e55bb7cff3ea>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0;32mimport\u001b[0m \u001b[0mgraphviz\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0msklearn\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mtree\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mdot_data\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mtree\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mexport_graphviz\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0md_tree\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mout_file\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mNone\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mfeature_names\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"buying\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"maint\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"doors\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"persons\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"lug_boot\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"safety\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m\"class\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mgraph\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mgraphviz\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mSource\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdot_data\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mgraph\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrender\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"car_dataset\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mModuleNotFoundError\u001b[0m: No module named 'graphviz'"
+     ]
+    }
+   ],
+   "source": [
+    "import graphviz \n",
+    "from sklearn import tree\n",
+    "dot_data = tree.export_graphviz(d_tree, out_file=None, feature_names=[\"buying\", \"maint\", \"doors\", \"persons\",\"lug_boot\", \"safety\", \"class\"]) \n",
+    "graph = graphviz.Source(dot_data) \n",
+    "graph.render(\"car_dataset\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "QUESTAO 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=None,\n",
+       "            max_features=None, max_leaf_nodes=None,\n",
+       "            min_impurity_decrease=0.0, min_impurity_split=None,\n",
+       "            min_samples_leaf=1, min_samples_split=2,\n",
+       "            min_weight_fraction_leaf=0.0, presort=False, random_state=None,\n",
+       "            splitter='best')"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d_tree2 = DecisionTreeClassifier(criterion=\"entropy\")\n",
+    "d_tree2.fit(train_data, train_data.index)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0.98148148148148151"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "d_tree2.predict(test_data.iloc[:, 0:6])\n",
+    "d_tree2.score(test_data, test_data.index)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<matplotlib.figure.Figure at 0x7fb65f790ac8>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "from sklearn.ensemble import RandomForestClassifier\n",
+    "\n",
+    "def randomForestScores(limitTrees, train_data):\n",
+    "    scores = []\n",
+    "    for i in range(1, limitTrees):\n",
+    "        toFitTrainData = train_data\n",
+    "        d_tree = RandomForestClassifier(n_estimators=i, criterion='entropy')\n",
+    "        d_tree.fit(toFitTrainData, toFitTrainData.index)\n",
+    "        \n",
+    "        d_tree.predict(test_data.iloc[:, 0:6])\n",
+    "        score = d_tree.score(test_data, test_data.index)\n",
+    "        scores.append(score)\n",
+    "    return scores\n",
+    "\n",
+    "scores = randomForestScores(11, train_data) \n",
+    "\n",
+    "plt.plot(range(1, 11), scores)\n",
+    "plt.xlabel('trees')\n",
+    "plt.ylabel('score')\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
