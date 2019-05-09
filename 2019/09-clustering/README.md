@@ -1,4 +1,3 @@
-# Aula - Clustering
-Data: 17/11/2017
+# Clustering
 
-[Link](https://docs.google.com/presentation/d/10SnrYrevdnGF2JoYkIes2oBFa-Ttz7cZkgq_czH3AzI/edit?usp=sharing) para a apresentação utilizada - Clustering.
+Link of the slides presentation: https://docs.google.com/presentation/d/1N6G_dkHMh_xBlyRrqVoGGIfrqE8rfH5FTRHdAjmDKo4/edit?usp=sharing
