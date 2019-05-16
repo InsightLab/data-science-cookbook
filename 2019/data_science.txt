@@ -1,0 +1,11 @@
+Segundo recente projeção do Gartner, mais de 40% das tarefas de Ciência de Dados serão automatizadas até 2020, resultando em um aumento de produtividade e maior uso de dados pelos profissionais chamados citizen data scientists.
+
+Esse tipo de profissional é definido pela consultoria como a pessoa que cria ou gera modelos que usam recursos de analytics ou capacidades preditivas e prescritivas, mas que tem função principal de trabalho fora do campo da estatística e da análise de dados.
+
+Com a Ciência de Dados emergindo como um significativo diferenciador nas indústrias, a maior parte dos fornecedores de plataformas de software de Dados e analytics agora está concentrada em fazer da simplificação seu principal objetivo por meio da automação de várias tarefas, tais como integração de dados e construção de modelos.
+
+“Tornar os produtos da Ciência de Dados mais fáceis para o uso pelos citizen data scientists aumentará o alcance dos fornecedores na empresa e ajudará a superar as falhas nas competências. O segredo para a simplicidade são a automação de tarefas que são repetitivas, a intensidade manual e não exigir conhecimento profundo dessa ciência, explica Alexander Linden, Vice-Presidente de Pesquisas do Gartner.
+
+Ainda de acordo com o Gartner, os citizen data scientists são capazes de realizar análises sofisticadas que anteriormente demandariam mais conhecimento, fornecendo Analytics avançado sem ter as habilidades que caracterizam os cientistas de dados.Poucos profissionais serão necessários para fazer a mesma quantidade de trabalho, mas cada projeto avançado da Ciência de Dados ainda precisará de pelo menos um ou dois cientistas.
+
+A consultoria também prevê que os citizen data scientists ultrapassarão os cientistas de dados na quantidade de análises avançadas produzidas até 2019. Muitos materiais produzidos por estes profissionais alimentarão e impactarão os negócios, criando um ambiente conduzido por analytics mais abrangente, enquanto, ao mesmo tempo, suportarão os profissionais tradicionais que podem mudar seu foco para uma análise mais complexa.
