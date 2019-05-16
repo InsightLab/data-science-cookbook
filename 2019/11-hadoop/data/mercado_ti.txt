@@ -1,0 +1,49 @@
+O mercado de TI no Brasil deve crescer 10,5% neste ano, na comparação com 2018, segundo previsão da IDC, que prevê um forte impacto positivo sobretudo do segmento de dispositivos. Quando somado ao setor de Telecom, que deve ter retração de 0,3%, o mercado de TIC (Tecnologias da informação e comunicação) brasileiro terá avanço de 4,9%.
+
+"O mercado de TI está otimista. Tanto fabricantes quanto consumidores estão sinalizando uma melhora e estamos projetando esses números com base nisso", apontou Pietro Delai, gerente de pesquisas da IDC, nesta terça-feira (2/5) durante apresentação dos resultados.
+
+Delai ressalta que os números de 2018 ainda não foram fechados, mas a previsão de crescimento no ano passado era de 2,2% - o que evidencia o cenário positivo do mercado para 2019. "O Brasil está levemente acima da média da América Latina. Em relação ao mundo, o avanço é bem parecido", afirmou.
+
+A tendência, segundo o estudo da consultoria, é de que as empresas brasileiras avancem para alcançar uma TI flexível, não apenas do ponto de vista de operação, mas também nos custos. "Serviços de TI estão cada vez mais presentes por conta da agilidade e falta de recursos dentro de casa", adicionou Delai.
+
+Alguns dos principais investimentos estarão em itens como cloud pública, internet das coisas (IoT) e inteligência artificial. Confira as principais tendências:
+
+Segurança da informação
+
+Luciano Ramos, coordenador de pesquisas de software na IDC, lembrou que, desde 2017, com o ataque em massa WannaCry, o tema segurança da informação virou pauta presente nas organizações. "Sabemos que o WannaCry chegou ao Brasil. Isso mostra que não está só no vizinho e pode acontecer a qualquer momento", pontuou. "O WannaCry não derrubou a TI, ele derrubou empresas. Isso trouxe grande impacto."
+
+Com o assunto ganhando relevância, soluções de próxima geração (NextGen) ganharão ainda mais importância, recorrendo a recursos como inteligência artificial e machine learning para combater ataques complexos.
+
+Em 2019, essas soluções de próxima geração atingirão US$ 671 milhões no Brasil, crescimento 2,5 vezes mais rápido do que produtos considerados tradicionais. Ainda, os gastos com Managed Security Services (Serviços Gerenciados de Segurança) ultrapassarão os US$ 548 milhões, acirrando a competição entre provedores "puros" e operadoras de telecomunicações, que estão enxergando oportunidades neste mercado.
+
+Inteligência artificial
+
+A projeção da IDC global para inteligência artificial é de um crescimento anual (CAGR) de 46,2%, chegando a US$ 52 bilhões em 2021. Ainda segundo a consultoria, em 2022, 22% das corporações usarão tecnologias de fala para interação com clientes.
+
+Como as organizações de Médio Porte podem atender aprimorar a Segurança Cibernética
+
+E-book por:
+ 
+No Brasil, 15,3% das médias e grandes empresas têm AI entre as principais iniciativas e esperam que isto dobre nos próximos quatro anos.
+
+Os principais casos de uso destacados pelos especialistas são agentes automáticos de atendimento, análise e investigação de fraudes, automação de TI, bem como diagnóstico e tratamentos de doenças.
+
+Big data e Analytics
+
+O momento do mercado de big data e Analytics ainda é de crescimento, podendo chegar a US$ 4,2 bilhões em 2019. Mas Ramos pondera que o avanço não tem sido no ritmo que a consultoria vinha estimando nos últimos anos. "Acreditávamos que as empresas teriam potencial para mais", disse.
+
+Ele comenta que existe uma clara dificuldade de entendimento das tecnologias de gestão de dados. Inclusive, um estudo com 122 empresas de médio e grande portes mostrou que 3/4 dos entrevistados não conheciam in-memory computing ou não têm interesse no tema. "In-memory computing é fator importante para Analytics avançado", ressaltou.
+
+Ainda, apenas 13,8% das empresas têm como prioridade de negócios expandir sua capacidade de triar proveito de dados para criar ou potencializar novas fontes de receitas. "Nossa expectativa para esse ano, diferentemente de anos anteriores, não é de crescimento de dois dígitos. Mas ainda assim é acima da média do mercado de software e serviços", explicou Ramos.
+
+Cloud pública
+
+Delai explica que cloud pública é um mercado que demorou para engrenar no Brasil. Prova disso é que somos o sexto maior mercado de TIC no mundo, mas apenas o 14º em uso de cloud pública. "Isso mostra claramente como começamos mais tarde. Mas isso faz com que tenhamos um ritmo insano", disse.
+
+Esse ritmo insano, como define o especialista, levará o mercado de cloud pública a um crescimento acelerado de 35,5% no Brasil, chegando a US$ 2,3 bilhões. Ainda, a previsão é chegar a US$ 5,8 bilhões até 2022.
+
+"O mercado já enxerga multicloud como caminho, embora os entendimentos de todos os 'sabores' de cloud ainda não esteja na ponta da língua dos gestores", comentou Delai.
+
+Internet das coisas
+
+Mesmo sem direcionamentos em relação ao Plano Nacional de IoT, que ainda não foi aprovado pela Presidência da República, o mercado de internet das coisas (IoT) seguirá avançando de forma exponencial no país.
