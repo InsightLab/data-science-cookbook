@@ -1,1 +1,6 @@
 # pneumonia
+Motivação : sociedade brasileira de pneumologia não permite identificar pneumonia apenas na clinica. É necessário o exame de raio-x
+
+Desafio Kaggle : https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
+
+codigo base : https://towardsdatascience.com/image-classification-python-keras-tutorial-kaggle-challenge-45a6332a58b8
