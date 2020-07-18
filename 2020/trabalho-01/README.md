@@ -23,8 +23,9 @@ OBS: Caso escolha este dataset e o seu relatório conte com apenas essas anális
 
 ### AVALIAÇÃO
 Como não sabemos o dataset que será escolhido, decidimos não definir um número mínimo de análises a serem feitas. Porém, utilizaremos os seguintes critérios:
-Complexidade do dataset - se o dataset for muito pequeno e/ou tiver poucas informações, haverá penalidade;
-Efetividade das análises - garanta que você fez as análises mais importantes. Combinar sem motivo algum dois atributos e gerar um gráfico não será contabilizado para nota.
-Organização do notebook - seu relatório será todo feito usando o Jupyter Notebook (o qual será o artefato de envio do trabalho). Logo, ele precisa está bem organizado, combinando código python com markdown;
-Reprodutividade do relatório - seu notebook será executado no momento da avaliação. Garanta que as células estejam na ordem correta e que qualquer instrução adicional esteja devidamente apresentada no notebook;
-Criatividade das análises - experimente combinar informações que podem parecer não estar relacionadas para obter insights sobre os dados;
+
+* Complexidade do dataset - se o dataset for muito pequeno e/ou tiver poucas informações, haverá penalidade;
+* Efetividade das análises - garanta que você fez as análises mais importantes. Combinar sem motivo algum dois atributos e gerar um gráfico não será contabilizado para nota.
+* Organização do notebook - seu relatório será todo feito usando o Jupyter Notebook (o qual será o artefato de envio do trabalho). Logo, ele precisa está bem organizado, combinando código python com markdown;
+* Reprodutividade do relatório - seu notebook será executado no momento da avaliação. Garanta que as células estejam na ordem correta e que qualquer instrução adicional esteja devidamente apresentada no notebook;
+* Criatividade das análises - experimente combinar informações que podem parecer não estar relacionadas para obter insights sobre os dados;
