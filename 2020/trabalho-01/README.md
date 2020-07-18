@@ -6,7 +6,7 @@
 
 ## Trabalho 1
 
-[link] (https://docs.google.com/document/d/e/2PACX-1vRnORJLRMQwVNQmf54f-2ZLZmyyvb-i2mIjXbMRjZCTcA8_xJ1Ipn6rMK3FEqh0Pfen4fYFwheyDSRJ/pub)
+[link](https://docs.google.com/document/d/e/2PACX-1vRnORJLRMQwVNQmf54f-2ZLZmyyvb-i2mIjXbMRjZCTcA8_xJ1Ipn6rMK3FEqh0Pfen4fYFwheyDSRJ/pub)
 
 ### VISÃO GERAL
 Existem diversos datasets em diversos formatos e sobre diversos assuntos. O objetivo deste trabalho é exercitar seus conhecimentos de Python, Numpy, Pandas, Matplotlib e Jupyter Notebook.
