@@ -1,3 +1,3 @@
-# Unsupervised learning and KMeans Clustering
+# Unsupervised learning and Clustering - KMeans, Hierarchical and DBSCAN
 
-Link of the slides presentation: https://docs.google.com/presentation/d/1i25x_M7sFBbdHuNonT1LK7QNRCmIEOqejdtiIWDaVyA/edit?usp=sharing
+Link of the slides presentation: https://docs.google.com/presentation/d/1N6G_dkHMh_xBlyRrqVoGGIfrqE8rfH5FTRHdAjmDKo4/edit?usp=sharing
